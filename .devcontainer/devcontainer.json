@@ -4,11 +4,11 @@
 	"name": "Flutter",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 //	"image": "mobiledevops/flutter-sdk-image",
-//	"dockerComposeFile": "docker-compose.yml",
-//	"service": "web"
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "web"
+//	"build": {
+//		"dockerfile": "Dockerfile"
+//	},
 //	"dockerFile": "./Dockerfile"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
