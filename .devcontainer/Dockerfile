@@ -4,24 +4,26 @@ FROM --platform=linux/amd64 ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG en_US.UTF-8
 
-# Add non-root user
-RUN groupadd -r mobiledevops \
-    && useradd --no-log-init -r -g mobiledevops mobiledevops
-
-# Set non-root user as default
-ENV HOME /home/mobiledevops
-USER mobiledevops
-WORKDIR $HOME/app
-
-#ENV FLUTTER_VERSION="3.19.0"
-#ENV FLUTTER_HOME "/home/mobiledevops/.flutter-sdk"
-#ENV PATH $PATH:$FLUTTER_HOME/bin
-#
-## Download and extract Flutter SDK
-#RUN mkdir $FLUTTER_HOME \
-#    && cd $FLUTTER_HOME \
-#    && curl --fail --remote-time --silent --location -O https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz \
-#    && tar xf flutter_linux_${FLUTTER_VERSION}-stable.tar.xz --strip-components=1 \
-#    && rm flutter_linux_${FLUTTER_VERSION}-stable.tar.xz
-#
-#RUN flutter precache
+# Add base environment
+RUN apt-get -qq update \
+    && apt-get -qqy --no-install-recommends install \
+    apt-utils \
+    build-essential \
+    openjdk-22-jdk \
+    openjdk-22-jre-headless \
+    software-properties-common \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    cargo \
+    pkg-config\
+    libstdc++6 \
+    libpulse0 \
+    libglu1-mesa \
+    openssh-server \
+    zip \
+    unzip \
+    curl \
+    lldb \
+    git > /dev/null \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
