@@ -4,6 +4,15 @@ FROM --platform=linux/amd64 ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG en_US.UTF-8
 
+# Add non-root user
+RUN groupadd -r mobiledevops \
+    && useradd --no-log-init -r -g mobiledevops mobiledevops
+
+# Set non-root user as default
+ENV HOME /home/mobiledevops
+USER mobiledevops
+WORKDIR $HOME/app
+
 #ENV FLUTTER_VERSION="3.19.0"
 #ENV FLUTTER_HOME "/home/mobiledevops/.flutter-sdk"
 #ENV PATH $PATH:$FLUTTER_HOME/bin
