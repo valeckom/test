@@ -7,7 +7,7 @@
 //	"dockerComposeFile": "docker-compose.yml",
 //	"service": "web"
 	"build": {
-		"dockerfile": "./Dockerfile"
+		"dockerfile": "."
 	},
 //	"dockerFile": "./Dockerfile"
 
