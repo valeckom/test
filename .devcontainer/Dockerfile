@@ -1,11 +1,12 @@
 # based on https://github.com/MobileDevOps/flutter-sdk-image/blob/master/Dockerfile
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM mobiledevops/flutter-sdk-image
+#FROM --platform=linux/amd64 ubuntu:22.04
 
-ENV DEBIAN_FRONTEND=noninteractive
-ENV LANG en_US.UTF-8
+# ENV DEBIAN_FRONTEND=noninteractive
+# ENV LANG en_US.UTF-8
 
 # Add base environment
-RUN apt-get -qq update
+# RUN apt-get -qq update \
 #    && apt-get -qqy --no-install-recommends install \
 #    apt-utils \
 #    build-essential \
