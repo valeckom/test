@@ -3,7 +3,7 @@
 {
 	"name": "flutter",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "dockerfile",
+	"build": { "dockerfile": "Dockerfile" },
 	"features": {
 	}
 
